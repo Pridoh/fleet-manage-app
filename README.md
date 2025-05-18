@@ -1,169 +1,146 @@
-# Fleet Management System
+# Fleet Management App
 
-Aplikasi manajemen armada kendaraan untuk perusahaan tambang nikel. Aplikasi ini digunakan untuk memantau dan mengelola kendaraan perusahaan, termasuk pemesanan kendaraan, persetujuan, monitoring penggunaan BBM, dan maintenance.
+Aplikasi manajemen armada kendaraan untuk mengelola pemesanan, penggunaan, dan pemeliharaan kendaraan perusahaan.
 
-## Spesifikasi Teknis
+## Deskripsi
 
--   PHP Version: 8.2
--   Laravel Version: 11.0
--   Database: MySQL 8.0
--   Frontend: Bootstrap 5.3 & Chart.js
+Fleet Management App adalah aplikasi berbasis web yang dibangun menggunakan framework Laravel untuk memudahkan pengelolaan armada kendaraan perusahaan. Aplikasi ini memungkinkan pengguna untuk melakukan pemesanan kendaraan, persetujuan pemesanan, pencatatan penggunaan kendaraan, pelacakan maintenance, dan pembuatan laporan.
 
-## Fitur
+## Persyaratan Sistem
 
-1. **Manajemen Pengguna**
-
-    - Multi-level user (Admin dan Approver)
-    - Autentikasi dan Otorisasi
-
-2. **Pemesanan Kendaraan**
-
-    - Form pemesanan dengan detail lengkap
-    - Sistem persetujuan berjenjang (minimal 2 level)
-    - Histori pemesanan
-
-3. **Persetujuan**
-
-    - Sistem approval berjenjang
-    - Notifikasi persetujuan
-    - Alasan penolakan
-
-4. **Dashboard**
-
-    - Grafik penggunaan kendaraan
-    - Statistik pemesanan
-    - Monitoring BBM
-
-5. **Laporan**
-    - Laporan pemesanan kendaraan
-    - Laporan konsumsi BBM
-    - Laporan maintenance
-    - Export ke Excel
-
-## Informasi Akun
-
-### Admin
-
--   Email: admin@example.com
--   Password: password
-
-### Approver 1
-
--   Email: approver1@example.com
--   Password: password
-
-### Approver 2
-
--   Email: approver2@example.com
--   Password: password
+-   PHP >= 8.2
+-   MySQL/MariaDB
+-   Composer
+-   Node.js dan NPM (untuk assets)
 
 ## Instalasi
 
-1. **Clone repositori**
+1. Clone repositori ini
 
     ```
-    git clone https://github.com/username/fleet-management-app.git
-    cd fleet-management-app
+    git clone https://github.com/Pridoh/fleet-manage-app.git
+    cd fleet-manage-app
     ```
 
-2. **Install dependensi**
+2. Instal dependensi
 
     ```
     composer install
     npm install
     ```
 
-3. **Setup konfigurasi lingkungan**
+3. Salin file .env.example menjadi .env dan sesuaikan konfigurasi database
 
     ```
     cp .env.example .env
     php artisan key:generate
     ```
 
-4. **Konfigurasi database di file .env**
+4. Konfigurasi database di file .env
 
     ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=db_fms
+    DB_DATABASE=fleet_management
     DB_USERNAME=root
     DB_PASSWORD=
     ```
 
-5. **Migrasi dan seed database**
+5. Jalankan migrasi dan seeder
 
     ```
     php artisan migrate --seed
     ```
 
-6. **Compile aset frontend**
-
-    ```
-    npm run dev
-    ```
-
-7. **Jalankan aplikasi**
-
+6. Jalankan aplikasi
     ```
     php artisan serve
     ```
 
-8. **Buka aplikasi di browser**
-    ```
-    http://localhost:8000
-    ```
+## Cara Penggunaan
 
-## Panduan Pengguna
+### 1. Login
 
-### Membuat Pemesanan Kendaraan
+-   Akses aplikasi di http://localhost:8000
+-   Login menggunakan kredensial yang sudah dibuat oleh seeder:
+    -   **Admin**: admin@example.com / password
+    -   **Approver**: approver1@example.com / password
+    -   **Approver**: approver2@example.com / password
 
-1. Login ke sistem
-2. Klik menu "Pemesanan Kendaraan"
-3. Klik tombol "Buat Pemesanan"
-4. Isi form pemesanan dengan detail yang diperlukan
-5. Pilih atasan/pihak yang menyetujui
-6. Klik "Simpan Pemesanan"
+### 2. Manajemen Kendaraan
 
-### Menyetujui Pemesanan
+-   Lihat daftar kendaraan di menu "Kendaraan > Daftar Kendaraan"
+-   Tambah kendaraan baru dengan klik tombol "Tambah Kendaraan"
+-   Lihat detail, edit atau hapus kendaraan dari daftar
 
-1. Login sebagai approver
-2. Klik menu "Persetujuan"
-3. Pilih permintaan yang akan disetujui
-4. Klik tombol "Detail" untuk melihat rincian
-5. Klik "Setujui" atau "Tolak" sesuai keputusan
+### 3. Pemesanan Kendaraan
 
-### Melihat Laporan
+-   Buat pemesanan kendaraan di menu "Pemesanan Kendaraan"
+-   Isi formulir pemesanan dengan lengkap
+-   Pemesanan akan dikirim untuk persetujuan
 
-1. Login ke sistem
-2. Klik menu "Laporan"
-3. Pilih jenis laporan (Pemesanan, BBM, atau Maintenance)
-4. Atur filter tanggal dan parameter lainnya
-5. Klik "Filter" untuk menampilkan data
-6. Klik "Export Excel" untuk mengunduh laporan
+### 4. Persetujuan Pemesanan
 
-## Alur Proses Pemesanan Kendaraan
+-   Approver dapat menyetujui atau menolak pemesanan di menu "Persetujuan"
+-   Lihat detail pemesanan sebelum memberikan persetujuan
+-   Tambahkan catatan jika diperlukan
 
-1. User mengajukan pemesanan kendaraan
-2. Permintaan dikirim ke atasan/manager untuk persetujuan (Level 1) & (Level 2)
-3. Admin pool menyetujui dan menentukan kendaraan & driver
-4. User menerima notifikasi persetujuan
-5. Kendaraan digunakan sesuai jadwal
-6. Setelah selesai, user menyelesaikan pemesanan
+### 5. Penggunaan Kendaraan
 
-## Catatan Teknis
+-   Setelah disetujui, pemesanan akan muncul di menu "Kendaraan > Penggunaan Kendaraan"
+-   Admin dapat menetapkan driver dan kendaraan
+-   Catat odometer awal dan akhir penggunaan
 
--   Gunakan PHP 8.2 atau yang lebih tinggi
--   Pastikan folder storage dan bootstrap/cache dapat ditulis oleh web server
--   Gunakan MySQL 8.0 atau versi yang kompatibel
+### 6. Log Kendaraan
+
+-   Akses "Kendaraan > Log Kendaraan" untuk melihat semua log penggunaan
+-   Catat log keberangkatan, kedatangan, pengisian BBM, dan insiden
+-   Lihat efisiensi penggunaan BBM dan jarak tempuh
+
+### 7. Maintenance Kendaraan
+
+-   Jadwalkan dan catat maintenance di menu "Kendaraan > Maintenance"
+-   Pantau status maintenance kendaraan
+-   Tetapkan jadwal maintenance berkala
+
+### 8. Laporan
+
+-   Buat laporan penggunaan kendaraan di menu "Laporan"
+-   Filter laporan berdasarkan periode waktu, kendaraan, atau driver
+-   Export laporan ke Excel untuk analisis lebih lanjut
+
+## Fitur Utama
+
+-   **Manajemen Kendaraan**: Pendaftaran, pengelolaan, dan pelacakan status kendaraan
+-   **Manajemen Driver**: Data lengkap driver dengan status ketersediaan
+-   **Pemesanan Kendaraan**: Sistem pemesanan kendaraan dengan workflow persetujuan
+-   **Persetujuan Bertingkat**: Sistem persetujuan pemesanan kendaraan
+-   **Pencatatan Penggunaan**: Detail penggunaan kendaraan termasuk odometer, BBM, dan efisiensi
+-   **Log Perjalanan**: Pencatatan detail aktivitas selama perjalanan
+-   **Maintenance**: Penjadwalan dan pencatatan maintenance kendaraan
+-   **Laporan**: Pembuatan laporan penggunaan kendaraan dan efisiensi BBM
+
+## Struktur Aplikasi
+
+-   **Controllers**: app/Http/Controllers
+-   **Models**: app/Models
+-   **Views**: resources/views
+-   **Routes**: routes/web.php
+-   **Database Migrations**: database/migrations
+-   **Database Seeders**: database/seeders
 
 ## Pengembangan Selanjutnya
 
--   Integrasi GPS tracking
--   Mobile app untuk driver
--   QR Code untuk pemeriksaan kendaraan
--   Sistem reminder maintenance
+Berikut adalah fitur yang direncanakan untuk pengembangan selanjutnya:
 
----
+-   Integrasi dengan GPS untuk pelacakan lokasi kendaraan real-time
+-   Aplikasi mobile untuk driver
+-   Dashboard analitik lanjutan
+-   Notifikasi melalui email dan SMS
+-   Pengelolaan biaya dan anggaran
+-   Integrasi dengan sistem akuntansi
 
-Dibuat dengan ❤️ untuk kebutuhan manajemen armada kendaraan perusahaan tambang nikel.
+## Lisensi
+
+Aplikasi ini dilisensikan di bawah [MIT License](LICENSE).
