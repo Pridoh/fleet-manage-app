@@ -1,0 +1,177 @@
+/* Responsive CSS for Fleet Management App */
+
+/* Global responsive styles */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Form controls */
+.form-control,
+.form-select {
+    max-width: 100%;
+}
+
+/* Card adjustments for mobile */
+@media (max-width: 767.98px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+
+    /* Smaller headings on mobile */
+    h1,
+    .h1 {
+        font-size: 1.75rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 1.5rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Adjust button sizes on mobile */
+    .btn-group > .btn,
+    .btn-group-sm > .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    /* Adjust margins and paddings */
+    .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .mt-4 {
+        margin-top: 1rem !important;
+    }
+
+    .py-4 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .px-4 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Form layouts for mobile */
+@media (max-width: 767.98px) {
+    .row > [class*="col-"] {
+        margin-bottom: 0.75rem;
+    }
+
+    /* Prevent horizontal scrolling in forms */
+    .container-fluid form {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Make sure form actions are visible and usable */
+    .form-actions,
+    .d-flex.justify-content-end,
+    .d-flex.justify-content-between {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/* Table adjustments */
+@media (max-width: 767.98px) {
+    /* Smaller font in tables */
+    .table {
+        font-size: 0.875rem;
+    }
+
+    /* Ensure action buttons in tables fit */
+    .table .btn-sm {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    /* Add horizontal scrolling for wide tables */
+    .table-responsive {
+        border: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust pagination for mobile */
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .pagination .page-link {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Dashboard cards */
+@media (max-width: 767.98px) {
+    .dashboard-card {
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-card .card-body {
+        padding: 0.75rem;
+    }
+
+    .dashboard-card .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .dashboard-card .display-4 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Fix for dropdowns on mobile */
+@media (max-width: 767.98px) {
+    .dropdown-menu {
+        position: absolute !important;
+    }
+}
+
+/* Fix for modals on mobile */
+@media (max-width: 767.98px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .modal-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        padding: 0.75rem;
+    }
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 767.98px) {
+    .nav-link,
+    .btn,
+    .dropdown-item {
+        padding: 0.5rem 0.75rem;
+    }
+}
