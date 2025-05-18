@@ -141,6 +141,3 @@ Berikut adalah fitur yang direncanakan untuk pengembangan selanjutnya:
 -   Pengelolaan biaya dan anggaran
 -   Integrasi dengan sistem akuntansi
 
-## Lisensi
-
-Aplikasi ini dilisensikan di bawah [MIT License](LICENSE).
